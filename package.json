@@ -1,0 +1,9 @@
+{
+  "name": "image-resizer",
+  "version": "1.0.0",
+  "main": "api/resize.js",
+  "dependencies": {
+    "sharp": "^0.32.6",
+    "node-fetch": "^3.3.2"
+  }
+}
