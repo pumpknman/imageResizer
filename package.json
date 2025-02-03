@@ -1,7 +1,7 @@
 {
   "name": "image-resizer",
   "version": "1.0.0",
-  "main": "api/resize.js",
+  "type": "module",  // ✅ ESM 모드 활성화
   "dependencies": {
     "sharp": "^0.32.6",
     "node-fetch": "^3.3.2"
