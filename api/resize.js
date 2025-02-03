@@ -1,7 +1,7 @@
 import sharp from "sharp";
-import fetch from "node-fetch";
 
 export default async function handler(req, res) {
+  const fetch = (await import("node-fetch")).default; // ✅ 동적 import 사용
   const { url, width, height } = req.query;
 
   if (!url || !width || !height) {
@@ -10,9 +10,9 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(url);
-    const buffer = await response.buffer();
+    const buffer = await response.arrayBuffer(); // ✅ 최신 fetch API 방식 적용
 
-    const resizedImage = await sharp(buffer)
+    const resizedImage = await sharp(Buffer.from(buffer))
       .resize(parseInt(width), parseInt(height))
       .toBuffer();
 
